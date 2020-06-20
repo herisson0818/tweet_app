@@ -1,0 +1,9 @@
+h1 今の気持ちをつぶやこう
+
+.nav.justify-content-end
+  = link_to '一覧', tweets_path, class: 'nav-link'
+
+= form_with model: @tweet, local: true do |f|
+  .form-group
+    = f.text_field :name, class: 'form-control', id: 'tweet_name'
+  = f.submit nil, class: 'btn btn-primary'

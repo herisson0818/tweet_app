@@ -1,0 +1,15 @@
+h1 ツイートの詳細
+
+.nav.justify-content-end
+  = link_to '一覧', tweets_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+        th= Tweet.human_attribute_name(:name)
+        td= simple_format(h(@tweet.name), {}, sanitize: false, wrapper_tag: "div")
+    tr
+        th= Tweet.human_attribute_name(:created_at)
+        td= @tweet.created_at
+    tr
+        th= Tweet.human_attribute_name(:updated_at)
+        td= @tweet.updated_at

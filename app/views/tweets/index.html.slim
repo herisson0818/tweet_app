@@ -1,0 +1,11 @@
+h1 みんなのつぶやき
+
+= link_to 'つぶやく',new_tweet_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+  tbody
+    - @tweets.each do |tweet|
+      tr
+        td= link_to tweet.name, tweet
