@@ -9,3 +9,4 @@ table.table.table-hover
     - @tweets.each do |tweet|
       tr
         td= link_to tweet.name, tweet
+        td= link_to '編集', edit_tweet_path(tweet), class: 'btn btn-primary mr-3'
