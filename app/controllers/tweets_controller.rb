@@ -12,6 +12,13 @@ class TweetsController < ApplicationController
   end
 
   def edit
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def updated_at
+    tweet = Tweet.find(params[:id])
+    tweet.update!(tweet_params)
+    redirect_to tweets_url, notice: "つぶやきを更新しました。"
   end
 
   def create
