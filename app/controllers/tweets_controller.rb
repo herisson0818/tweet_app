@@ -23,16 +23,20 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    tweet = Tweet.find(params[:id])
+    @tweet = Tweet.find(params[:id])
     tweet.destroy
     redirect_to tweets_url, notice: "ツイートを削除しました。"
   end
 
   def create
-    tweet = Tweet.new(tweet_params)
-    tweet.save!
-    flash[:notice] = "ツイートしました。"
-    redirect_to tweets_url
+    @tweet = Tweet.new(tweet_params)
+
+    if @tweet.save
+      flash[:notice] = "ツイートしました。"
+      redirect_to tweets_url
+    else
+      render :new
+    end
   end
 
   private
