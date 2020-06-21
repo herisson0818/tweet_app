@@ -15,16 +15,23 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
   end
 
-  def updated_at
+  def update
     tweet = Tweet.find(params[:id])
     tweet.update!(tweet_params)
-    redirect_to tweets_url, notice: "つぶやきを更新しました。"
+    flash[:notice] = "ツイートを更新しました。"
+    redirect_to tweets_url
+  end
+
+  def destroy
+    tweet = Tweet.find(params[:id])
+    tweet.destroy
+    redirect_to tweets_url, notice: "ツイートを削除しました。"
   end
 
   def create
     tweet = Tweet.new(tweet_params)
     tweet.save!
-    flash[:notice] = "つぶやきました。"
+    flash[:notice] = "ツイートしました。"
     redirect_to tweets_url
   end
 

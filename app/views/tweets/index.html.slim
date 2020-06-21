@@ -1,12 +1,15 @@
-h1 みんなのつぶやき
+h1 ツイート一覧
 
-= link_to 'つぶやく',new_tweet_path, class: 'btn btn-primary'
+= link_to 'ツイート',new_tweet_path, class: 'btn btn-primary'
 
 .mb-3
 table.table.table-hover
   thead.thead-default
+  tr
   tbody
     - @tweets.each do |tweet|
       tr
         td= link_to tweet.name, tweet
-        td= link_to '編集', edit_tweet_path(tweet), class: 'btn btn-primary mr-3'
+        td
+          = link_to '編集', edit_tweet_path(tweet), class: 'btn btn-primary mr-3'
+          = link_to '削除', tweet, method: :delete, data: { confirm: "ツイートを削除します。よろしいですか？"}, class: 'btn btn-danger'

@@ -1,4 +1,4 @@
-h1 ツイートの詳細
+h1 つぶやきの詳細
 
 .nav.justify-content-end
   = link_to '一覧', tweets_path, class: 'nav-link'
@@ -13,3 +13,6 @@ table.table.table-hover
     tr
         th= Tweet.human_attribute_name(:updated_at)
         td= @tweet.updated_at
+
+= link_to '編集', edit_tweet_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @tweet, method: :delete, data: { confirm: "ツイートを削除します。よろしいですか？"}, class: 'btn btn-danger'
