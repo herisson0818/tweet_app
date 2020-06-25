@@ -6,4 +6,5 @@
 = form_with model: tweet, local: true do |f|
   .form-group
     = f.text_field :name, class: 'form-control', id: 'tweet_name'
+    = f.file_field :image
   = f.submit nil, class: 'btn btn-primary'

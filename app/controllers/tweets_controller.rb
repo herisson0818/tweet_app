@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.order(created_at: :desc)
   end
 
   def show
@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet = Tweet.find(params[:id])
-    tweet.destroy
+    @tweet.destroy
     redirect_to tweets_url, notice: "ツイートを削除しました。"
   end
 
@@ -42,6 +42,6 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:name)
+    params.require(:tweet).permit(:name, :image)
   end
 end
