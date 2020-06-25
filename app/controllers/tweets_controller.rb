@@ -31,6 +31,13 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
 
+    #image = image_params[:image]
+    #image_params = {}
+    #if image != nil
+    #  image_params[:image] = image.read
+    #end
+    #@image = Image.new(image_params)
+
     if @tweet.save
       flash[:notice] = "ツイートしました。"
       redirect_to tweets_url
@@ -44,4 +51,5 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:name, :image)
   end
+
 end
