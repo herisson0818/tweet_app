@@ -10,7 +10,8 @@ table.table.table-hover
     - @tweets.each do |tweet|
       tr
         td= link_to tweet.name, tweet
-        td= tweet.image
+        td
+          = image_tag tweet.image.to_s
         td
           = link_to '編集', edit_tweet_path(tweet), class: 'btn btn-primary mr-3'
           = link_to '削除', tweet, method: :delete, data: { confirm: "ツイートを削除します。よろしいですか？"}, class: 'btn btn-danger'

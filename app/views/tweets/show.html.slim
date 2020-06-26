@@ -8,6 +8,10 @@ table.table.table-hover
         th= Tweet.human_attribute_name(:name)
         td= simple_format(h(@tweet.name), {}, sanitize: false, wrapper_tag: "div")
     tr
+        th= Tweet.human_attribute_name(:image)
+        td
+          = image_tag @tweet.image.to_s
+    tr
         th= Tweet.human_attribute_name(:created_at)
         td= @tweet.created_at
     tr

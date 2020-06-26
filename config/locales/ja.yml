@@ -12,6 +12,7 @@ ja:
       tweet:
         id: ID
         name: ツイート
+        image: 画像
         description: 詳しい説明
         created_at: 登録日時
         updated_at: 更新日時
